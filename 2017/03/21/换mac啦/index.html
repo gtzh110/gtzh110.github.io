@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="android开发之路">
 <meta property="og:description" content="一、写在前面的废话  经历了一周的纠结，也错失几个好价，我终于狠下心，咬紧牙，一把掏出钱包，不对，是掏出手机付款了。机器到手后，所有的心疼瞬间丢到召唤师峡谷，太TM爽了！入眼的是无任何颗粒感的视网膜屏，双手放在键盘上，手掌能感受到带有丝丝凉意的金属质感，手指码字根本停不下来。我想，我终于理解那些推荐MBP的人了。">
 <meta property="og:image" content="https://pic3.zhimg.com/v2-40629bfa6d17612d1d756104e16f029a_b.jpg">
-<meta property="og:updated_time" content="2017-03-23T16:20:46.000Z">
+<meta property="og:updated_time" content="2017-03-26T13:51:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="换mac啦">
 <meta name="twitter:description" content="一、写在前面的废话  经历了一周的纠结，也错失几个好价，我终于狠下心，咬紧牙，一把掏出钱包，不对，是掏出手机付款了。机器到手后，所有的心疼瞬间丢到召唤师峡谷，太TM爽了！入眼的是无任何颗粒感的视网膜屏，双手放在键盘上，手掌能感受到带有丝丝凉意的金属质感，手指码字根本停不下来。我想，我终于理解那些推荐MBP的人了。">
@@ -330,13 +330,15 @@
       
         <h4 id="一、写在前面的废话"><a href="#一、写在前面的废话" class="headerlink" title="一、写在前面的废话"></a>一、写在前面的废话</h4><p>  经历了一周的纠结，也错失几个好价，我终于狠下心，咬紧牙，一把掏出钱包，不对，是掏出手机付款了。机器到手后，所有的心疼瞬间丢到召唤师峡谷，太TM爽了！入眼的是无任何颗粒感的视网膜屏，双手放在键盘上，手掌能感受到带有丝丝凉意的金属质感，手指码字根本停不下来。我想，我终于理解那些推荐MBP的人了。</p>
 <a id="more"></a>
-<h4 id="二、一些常用快捷键"><a href="#二、一些常用快捷键" class="headerlink" title="二、一些常用快捷键"></a>二、一些常用快捷键</h4><p>  入手才三天，覆盖全部快捷键是不现实的，暂时把常用的列举一下，以后再慢慢补充吧。</p>
+<h4 id="二、一些常用快捷键"><a href="#二、一些常用快捷键" class="headerlink" title="二、一些常用快捷键"></a>二、一些常用快捷键</h4><p>暂时把常用的列举一下，以后再慢慢补充吧。</p>
 <p><code>command + shift + 3/4 截屏/截图</code></p>
 <p><code>command + m 最小化窗口</code></p>
 <p><code>command + h 隐藏窗口</code></p>
 <p><code>command + q 关闭当前程序</code></p>
 <p><code>command + r 刷新</code></p>
 <p><code>command + t/w 新建一个选项卡/关闭当前选项卡</code></p>
+<p><code>command + shift + . 显示隐藏文件夹和文件</code></p>
+<p><code>command + shift + g 前往指定文件夹</code></p>
 <p>上面是我这几天用的最多的，在知乎上看到一张图，基本上涵盖了最常用的吧：</p>
 <p><img src="https://pic3.zhimg.com/v2-40629bfa6d17612d1d756104e16f029a_b.jpg" alt=""></p>
 <h4 id="三、开发环境的搭建"><a href="#三、开发环境的搭建" class="headerlink" title="三、开发环境的搭建"></a>三、开发环境的搭建</h4><p>  公司项目用的 Android 原生和 React Native混合开发的模式，所以需要搭建 Android 环境和 RN 环境。</p>
@@ -356,7 +358,31 @@
 </li>
 <li><p>我手上这台机器是 os x 10.12.3的，没有自带 Java，所以我们需要手动安装。我们可以去 oracle 官网下载 jdk for mac，也可以用上面提到的 brew cask install java 来进行安装。我没有配置 java 的环境变量，似乎也能用 java -version，神奇。</p>
 </li>
-<li><p>android studio 直接下载 .dmg 文件即可，它自动设置了 java 的路径，然后 sdk可以通过studio下载或者找个国内镜像网站下好后放到 sdk 目录下。</p>
+<li><p>android studio 直接下载 .dmg 文件即可，它自动设置了 java 的路径， sdk可以通过studio下载,或者找个国内镜像网站下好后放到 sdk 目录下。</p>
+<p>ps: 要想在终端下使用 ADB 命令，还得配置sdk的环境变量，参考<a href="http://http://www.cnblogs.com/zzsdream/p/6393480.html" target="_blank" rel="external">传送门</a></p>
+<ol>
+<li><p>进入终端，在用户目录下，输入命令。该命令的作用是如果不存在.bash_profile文件，则创建该文件。</p>
+<blockquote>
+<p>touch .bash_profile </p>
+</blockquote>
+</li>
+<li><p>再输入命令，该命令的作用是用文本编辑器TextEdit打开.bash_profile文件</p>
+<blockquote>
+<p>open -e .bash_profile </p>
+</blockquote>
+</li>
+<li><p>在编辑器中加入以下路径</p>
+<blockquote>
+<p>export PATH=${PATH}:/Users/xxx(你的sdk路径)/sdk/platform-tools  </p>
+<p>export PATH=${PATH}:/Users/xxx(你的sdk路径)/sdk/tools  </p>
+</blockquote>
+</li>
+<li><p>保存退出，重启终端，检验是否设置成功</p>
+<blockquote>
+<p>adb version</p>
+</blockquote>
+</li>
+</ol>
 </li>
 <li><p>RN 环境搭建，可参考<a href="http://reactnative.cn" target="_blank" rel="external">传送门</a>。我简单说下步骤：</p>
 <ul>
