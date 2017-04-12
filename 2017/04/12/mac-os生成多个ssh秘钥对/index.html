@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="ssh," />
 
 
 
@@ -87,16 +87,16 @@
 
 
 
-<meta name="description" content="一、日常废话  之前就发现我这个搭建在github上的blog访问速度有些捉急，经过一番搜索，学到几招提升访问速度的姿势。各位看官请等我日后补充。">
+<meta name="description" content="一、日常废话昨晚看到一篇提升博客访问速度的文章，其中一点是配置多线路解析，国内路线走国内平台，国外线路走 GitHub Pages。其中，作者提到了国内的代码托管平台 Coding，该平台免费提供静态资源托管，所以我们以前利用 hexo搭建的 GitHub Pages 博客也可以轻松迁移过来。具体步骤我写在另一篇博客中，这里不多讲了。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="提升博客的访问速度">
-<meta property="og:url" content="http://yoursite.com/2017/04/12/提升博客的访问速度/index.html">
+<meta property="og:title" content="mac下管理多个ssh秘钥对">
+<meta property="og:url" content="http://yoursite.com/2017/04/12/mac-os生成多个ssh秘钥对/index.html">
 <meta property="og:site_name" content="android开发之路">
-<meta property="og:description" content="一、日常废话  之前就发现我这个搭建在github上的blog访问速度有些捉急，经过一番搜索，学到几招提升访问速度的姿势。各位看官请等我日后补充。">
-<meta property="og:updated_time" content="2017-04-11T16:27:17.000Z">
+<meta property="og:description" content="一、日常废话昨晚看到一篇提升博客访问速度的文章，其中一点是配置多线路解析，国内路线走国内平台，国外线路走 GitHub Pages。其中，作者提到了国内的代码托管平台 Coding，该平台免费提供静态资源托管，所以我们以前利用 hexo搭建的 GitHub Pages 博客也可以轻松迁移过来。具体步骤我写在另一篇博客中，这里不多讲了。">
+<meta property="og:updated_time" content="2017-04-12T17:11:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="提升博客的访问速度">
-<meta name="twitter:description" content="一、日常废话  之前就发现我这个搭建在github上的blog访问速度有些捉急，经过一番搜索，学到几招提升访问速度的姿势。各位看官请等我日后补充。">
+<meta name="twitter:title" content="mac下管理多个ssh秘钥对">
+<meta name="twitter:description" content="一、日常废话昨晚看到一篇提升博客访问速度的文章，其中一点是配置多线路解析，国内路线走国内平台，国外线路走 GitHub Pages。其中，作者提到了国内的代码托管平台 Coding，该平台免费提供静态资源托管，所以我们以前利用 hexo搭建的 GitHub Pages 博客也可以轻松迁移过来。具体步骤我写在另一篇博客中，这里不多讲了。">
 
 
 
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/12/提升博客的访问速度/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/12/mac-os生成多个ssh秘钥对/"/>
 
 
 
 
 
-  <title> 提升博客的访问速度 | android开发之路 </title>
+  <title> mac下管理多个ssh秘钥对 | android开发之路 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -249,7 +249,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/12/提升博客的访问速度/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/12/mac-os生成多个ssh秘钥对/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张昊">
@@ -270,7 +270,7 @@
             
             
               
-                提升博客的访问速度
+                mac下管理多个ssh秘钥对
               
             
           </h1>
@@ -285,7 +285,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-12T00:21:22+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-12T11:06:55+08:00">
                 2017-04-12
               </time>
             
@@ -301,8 +301,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-04-12T00:27:17+08:00">
-                2017-04-12
+              <time title="更新于" itemprop="dateModified" datetime="2017-04-13T01:11:14+08:00">
+                2017-04-13
               </time>
             
           </span>
@@ -338,7 +338,27 @@
       
 
       
-        <h6 id="一、日常废话"><a href="#一、日常废话" class="headerlink" title="一、日常废话"></a>一、日常废话</h6><p>  之前就发现我这个搭建在github上的blog访问速度有些捉急，经过一番搜索，学到几招提升访问速度的姿势。各位看官请等我日后补充。</p>
+        <h4 id="一、日常废话"><a href="#一、日常废话" class="headerlink" title="一、日常废话"></a>一、日常废话</h4><p>昨晚看到一篇提升博客访问速度的文章，其中一点是配置多线路解析，国内路线走国内平台，国外线路走 GitHub Pages。其中，作者提到了国内的代码托管平台 <a href="https://coding.net" target="_blank" rel="external">Coding</a>，该平台免费提供静态资源托管，所以我们以前利用 hexo搭建的 GitHub Pages 博客也可以轻松迁移过来。具体步骤我写在另一篇博客中，这里不多讲了。</p>
+<a id="more"></a>
+<h4 id="二、遇到的问题及解决办法"><a href="#二、遇到的问题及解决办法" class="headerlink" title="二、遇到的问题及解决办法"></a>二、遇到的问题及解决办法</h4><p><em>1.问题场景</em></p>
+<blockquote>
+<p>公司项目托管在 GitLab,个人项目托管在 GitHub 和 Coding，用到三对 ssh 秘钥，</p>
+</blockquote>
+<p>Coding 与 GitHub 一样，需要将使用者的公钥上传到服务器以保证安全传输。所以我用下面的命令生成了 Coding平台专用的秘钥对，至于它的原理，另找时间研究吧。</p>
+<p><code>ssh-keygen -t rsa -C &quot;username@email.com&quot;</code></p>
+<p>换mac后我先 clone 的公司的项目，当时生成的秘钥文件是 id_rsa，对应于 GitLab。这次为 Coding 生成的秘钥不能再用默认命名以免覆盖，另取名 coding_key。问题就出在这里，我把 coding_key.pub 中的公钥上传到Coding后，用以下命令测试还是 Permission denied。</p>
+<p><code>ssh -T git@git.coding.net</code></p>
+<p><em>2.问题的原因参考<a href="http://www.cnblogs.com/ayseeing/p/4445194.html" target="_blank" rel="external">这里</a>。</em></p>
+<blockquote>
+<p>每次连接远程A服务器时，本机的ssh客户端默认发送id_rsa（ssh-keygen生成秘钥对时的默认命名）私钥到A服务端进行验证，如果本机只有这一个秘钥对且生成时没有更改默认命名，那自然不会有问题。但如果本机还与B通信，就需要生成另一对秘钥，上传公钥到B。连接B服务器时，ssh客户端发送的仍然是id_rsa,而与B服务器存储的公钥对应不上，自然就报错了。</p>
+</blockquote>
+<p>我想要的是，不同的ssh秘钥对共存且互不干扰，连接 Server 时自动选择对应私钥。</p>
+<p><em>3.解决方案：</em></p>
+<p><a href="https://segmentfault.com/q/1010000000835302" target="_blank" rel="external">https://segmentfault.com/q/1010000000835302</a></p>
+<p><a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/" target="_blank" rel="external">https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/</a></p>
+<p><a href="https://my.oschina.net/stefanzhlg/blog/529403" target="_blank" rel="external">https://my.oschina.net/stefanzhlg/blog/529403</a></p>
+<p><em>4.我的做法：</em></p>
+<p>上面提到的解决办法，都是先用<code>ssh-add ~/.ssh/xxx</code>将私钥添加到<a href="http://man.linuxde.net/ssh-agent" target="_blank" rel="external">ssh-agent</a>,然后再编写config文件。我实践了一下，发现在mac系统中，使用 ssh-add 添加和编写 config 文件这两步，只要有一步做到就可以满足需求。不知道window 下是不是必须同时实现才可以。</p>
 
       
     </div>
@@ -368,7 +388,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/ssh/" rel="tag"># ssh</a>
           
         </div>
       
@@ -381,8 +401,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/21/换mac啦/" rel="next" title="换mac啦">
-                <i class="fa fa-chevron-left"></i> 换mac啦
+              <a href="/2017/04/12/提升博客的访问速度/" rel="next" title="提升博客的访问速度">
+                <i class="fa fa-chevron-left"></i> 提升博客的访问速度
               </a>
             
           </div>
@@ -391,8 +411,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/12/mac-os生成多个ssh秘钥对/" rel="prev" title="mac下管理多个ssh秘钥对">
-                mac下管理多个ssh秘钥对 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/12/Handler不正确使用可能导致内存泄漏/" rel="prev" title="Handler不正确使用可能导致内存泄漏">
+                Handler不正确使用可能导致内存泄漏 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -535,7 +555,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#一、日常废话"><span class="nav-number">1.</span> <span class="nav-text">一、日常废话</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、日常废话"><span class="nav-number">1.</span> <span class="nav-text">一、日常废话</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、遇到的问题及解决办法"><span class="nav-number">2.</span> <span class="nav-text">二、遇到的问题及解决办法</span></a></li></ol></div>
             
 
           </div>
