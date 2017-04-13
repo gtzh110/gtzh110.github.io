@@ -87,16 +87,16 @@
 
 
 
-<meta name="description" content="一、写在前面的废话​    今天在rn中调整一个view的backgroudColor时，想设置透明度适中的色值，习惯性的写成’#77000000’，这在Android项目的xml文件中是没问题的，但是放在js文件的Style中就是不起作用，查了一下，有argb和rgba两种格式的。">
+<meta name="description" content="一、写在前面的废话今天在rn中调整一个view的backgroudColor时，想设置透明度适中的色值，按照Android原生代码的习惯写成’#77000000’。这种写法在Android项目的xml文件中是没问题的，但是放在js文件的Style中就是不起作用，查了一下，色值有argb和rgba两种格式。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ARGB与RGBA">
 <meta property="og:url" content="http://yoursite.com/2017/03/01/ARGB与RGBA/index.html">
-<meta property="og:site_name" content="android开发之路">
-<meta property="og:description" content="一、写在前面的废话​    今天在rn中调整一个view的backgroudColor时，想设置透明度适中的色值，习惯性的写成’#77000000’，这在Android项目的xml文件中是没问题的，但是放在js文件的Style中就是不起作用，查了一下，有argb和rgba两种格式的。">
-<meta property="og:updated_time" content="2017-04-12T17:37:19.000Z">
+<meta property="og:site_name" content="My World">
+<meta property="og:description" content="一、写在前面的废话今天在rn中调整一个view的backgroudColor时，想设置透明度适中的色值，按照Android原生代码的习惯写成’#77000000’。这种写法在Android项目的xml文件中是没问题的，但是放在js文件的Style中就是不起作用，查了一下，色值有argb和rgba两种格式。">
+<meta property="og:updated_time" content="2017-04-13T14:35:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ARGB与RGBA">
-<meta name="twitter:description" content="一、写在前面的废话​    今天在rn中调整一个view的backgroudColor时，想设置透明度适中的色值，习惯性的写成’#77000000’，这在Android项目的xml文件中是没问题的，但是放在js文件的Style中就是不起作用，查了一下，有argb和rgba两种格式的。">
+<meta name="twitter:description" content="一、写在前面的废话今天在rn中调整一个view的backgroudColor时，想设置透明度适中的色值，按照Android原生代码的习惯写成’#77000000’。这种写法在Android项目的xml文件中是没问题的，但是放在js文件的Style中就是不起作用，查了一下，色值有argb和rgba两种格式。">
 
 
 
@@ -130,7 +130,7 @@
 
 
 
-  <title> ARGB与RGBA | android开发之路 </title>
+  <title> ARGB与RGBA | My World </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -166,7 +166,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">android开发之路</span>
+        <span class="site-title">My World</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -268,7 +268,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="android开发之路">
+      <meta itemprop="name" content="My World">
     </span>
 
     
@@ -311,7 +311,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-04-13T01:37:19+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2017-04-13T22:35:41+08:00">
                 2017-04-13
               </time>
             
@@ -370,13 +370,13 @@
       
 
       
-        <h4 id="一、写在前面的废话"><a href="#一、写在前面的废话" class="headerlink" title="一、写在前面的废话"></a>一、写在前面的废话</h4><p>​    今天在rn中调整一个view的backgroudColor时，想设置透明度适中的色值，习惯性的写成’#77000000’，这在Android项目的xml文件中是没问题的，但是放在js文件的Style中就是不起作用，查了一下，有argb和rgba两种格式的。</p>
+        <h4 id="一、写在前面的废话"><a href="#一、写在前面的废话" class="headerlink" title="一、写在前面的废话"></a>一、写在前面的废话</h4><p>今天在rn中调整一个view的backgroudColor时，想设置透明度适中的色值，按照Android原生代码的习惯写成’#77000000’。这种写法在Android项目的xml文件中是没问题的，但是放在js文件的Style中就是不起作用，查了一下，色值有argb和rgba两种格式。</p>
 <a id="more"></a>
-<h4 id="二、ARGB"><a href="#二、ARGB" class="headerlink" title="二、ARGB"></a>二、ARGB</h4><p>​    在Android中颜色值通常遵循RGB/ARGB的标准，以“#”开头，以16进制表示，常用的格式为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#RGB</div><div class="line">#RRGGBB</div><div class="line">#ARGB</div><div class="line">#AARRGGBB</div></pre></td></tr></table></figure>
-<p>​    上面四个字母都很容易理解，分别是Alpha,Red,Green,Blue。透明度分为256阶（0-255），计算机上用16进制表示为（00-ff）。透明就是0阶，不透明就是255阶,如果50%透明就是127阶。</p>
-<h4 id="三、RGBA"><a href="#三、RGBA" class="headerlink" title="三、RGBA"></a>三、RGBA</h4><p>​    这四个字母的意思跟上面讲的完全一样，只是透明度放到了最后。粗略的查了一下，RGBA是CSS3标准（这属于前端的知识范畴了，有机会再去学习）新增的，CSS2中色彩模式只有RGB色彩模式和十六进制模式。</p>
-<p>​    我个人理解，这两种格式只是顺序上不同，应用于不同的编程语言中。需要记住，react native中是将表示透明度的两位十六进制放在最后的。</p>
+<h4 id="二、ARGB"><a href="#二、ARGB" class="headerlink" title="二、ARGB"></a>二、ARGB</h4><p>在Android中颜色值通常遵循RGB/ARGB的标准，以“#”开头，以16进制表示，常用的格式为</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#RGB</div><div class="line">#RRGGBB</div><div class="line">#ARGB</div><div class="line">#AARRGGBB</div></pre></td></tr></table></figure>
+<p>上面四个字母都很容易理解，分别是Alpha,Red,Green,Blue。透明度分为256阶（0-255），计算机上用16进制表示为（00-ff）。透明就是0阶，不透明就是255阶,如果50%透明就是127阶。</p>
+<h4 id="三、RGBA"><a href="#三、RGBA" class="headerlink" title="三、RGBA"></a>三、RGBA</h4><p>这四个字母的意思跟上面讲的完全一样，只是透明度放到了最后。粗略的查了一下，RGBA是CSS3标准（这属于前端的知识范畴了，有机会再去学习）新增的，CSS2中色彩模式只有RGB色彩模式和十六进制模式。</p>
+<p>我个人理解，这两种格式只是顺序上不同，应用于不同的编程语言中。需要记住，react native中是将表示透明度的两位十六进制数放在最后。</p>
 
       
     </div>
