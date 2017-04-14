@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="android," />
+  <meta name="keywords" content="react native," />
 
 
 
@@ -87,13 +87,16 @@
 
 
 
+<meta name="description" content="一、写在前面的废话今天在rn中调整一个view的backgroudColor时，想设置透明度适中的色值，按照Android原生代码的习惯写成’#77000000’。这种写法在Android项目的xml文件中是没问题的，但是放在js文件的Style中就是不起作用，查了一下，色值有argb和rgba两种格式。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Handler不正确使用可能导致内存泄漏">
-<meta property="og:url" content="http://yoursite.com/2017/04/12/Handler不正确使用可能导致内存泄漏/index.html">
+<meta property="og:title" content="ARGB与RGBA">
+<meta property="og:url" content="http://yoursite.com/ARGB与RGBA.html">
 <meta property="og:site_name" content="My World">
-<meta property="og:updated_time" content="2017-04-12T17:35:28.000Z">
+<meta property="og:description" content="一、写在前面的废话今天在rn中调整一个view的backgroudColor时，想设置透明度适中的色值，按照Android原生代码的习惯写成’#77000000’。这种写法在Android项目的xml文件中是没问题的，但是放在js文件的Style中就是不起作用，查了一下，色值有argb和rgba两种格式。">
+<meta property="og:updated_time" content="2017-04-13T14:35:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Handler不正确使用可能导致内存泄漏">
+<meta name="twitter:title" content="ARGB与RGBA">
+<meta name="twitter:description" content="一、写在前面的废话今天在rn中调整一个view的backgroudColor时，想设置透明度适中的色值，按照Android原生代码的习惯写成’#77000000’。这种写法在Android项目的xml文件中是没问题的，但是放在js文件的Style中就是不起作用，查了一下，色值有argb和rgba两种格式。">
 
 
 
@@ -121,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/12/Handler不正确使用可能导致内存泄漏/"/>
+  <link rel="canonical" href="http://yoursite.com/ARGB与RGBA.html"/>
 
 
 
 
 
-  <title> Handler不正确使用可能导致内存泄漏 | My World </title>
+  <title> ARGB与RGBA | My World </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -256,7 +259,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/12/Handler不正确使用可能导致内存泄漏/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ARGB与RGBA.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张昊">
@@ -277,7 +280,7 @@
             
             
               
-                Handler不正确使用可能导致内存泄漏
+                ARGB与RGBA
               
             
           </h1>
@@ -292,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-12T17:43:12+08:00">
-                2017-04-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-01T22:40:39+08:00">
+                2017-03-01
               </time>
             
 
@@ -308,7 +311,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-04-13T01:35:28+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2017-04-13T22:35:41+08:00">
                 2017-04-13
               </time>
             
@@ -327,8 +330,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/" itemprop="url" rel="index">
-                    <span itemprop="name">android</span>
+                  <a href="/categories/react-native/" itemprop="url" rel="index">
+                    <span itemprop="name">react native</span>
                   </a>
                 </span>
 
@@ -367,7 +370,14 @@
       
 
       
-        
+        <h4 id="一、写在前面的废话"><a href="#一、写在前面的废话" class="headerlink" title="一、写在前面的废话"></a>一、写在前面的废话</h4><p>今天在rn中调整一个view的backgroudColor时，想设置透明度适中的色值，按照Android原生代码的习惯写成’#77000000’。这种写法在Android项目的xml文件中是没问题的，但是放在js文件的Style中就是不起作用，查了一下，色值有argb和rgba两种格式。</p>
+<a id="more"></a>
+<h4 id="二、ARGB"><a href="#二、ARGB" class="headerlink" title="二、ARGB"></a>二、ARGB</h4><p>在Android中颜色值通常遵循RGB/ARGB的标准，以“#”开头，以16进制表示，常用的格式为</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#RGB</div><div class="line">#RRGGBB</div><div class="line">#ARGB</div><div class="line">#AARRGGBB</div></pre></td></tr></table></figure>
+<p>上面四个字母都很容易理解，分别是Alpha,Red,Green,Blue。透明度分为256阶（0-255），计算机上用16进制表示为（00-ff）。透明就是0阶，不透明就是255阶,如果50%透明就是127阶。</p>
+<h4 id="三、RGBA"><a href="#三、RGBA" class="headerlink" title="三、RGBA"></a>三、RGBA</h4><p>这四个字母的意思跟上面讲的完全一样，只是透明度放到了最后。粗略的查了一下，RGBA是CSS3标准（这属于前端的知识范畴了，有机会再去学习）新增的，CSS2中色彩模式只有RGB色彩模式和十六进制模式。</p>
+<p>我个人理解，这两种格式只是顺序上不同，应用于不同的编程语言中。需要记住，react native中是将表示透明度的两位十六进制数放在最后。</p>
+
       
     </div>
 
@@ -396,7 +406,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/android/" rel="tag"># android</a>
+            <a href="/tags/react-native/" rel="tag"># react native</a>
           
         </div>
       
@@ -409,8 +419,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/12/mac-os生成多个ssh秘钥对/" rel="next" title="mac下管理多个ssh秘钥对">
-                <i class="fa fa-chevron-left"></i> mac下管理多个ssh秘钥对
+              <a href="/清单文件中activity属性windowSoftInputMode研究.html" rel="next" title="清单文件中activity属性windowSoftInputMode研究">
+                <i class="fa fa-chevron-left"></i> 清单文件中activity属性windowSoftInputMode研究
               </a>
             
           </div>
@@ -418,6 +428,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/换mac啦.html" rel="prev" title="换mac啦">
+                换mac啦 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -466,8 +480,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1487524748815&di=cd0f9aa211a9dd59ef60da71ac98b364&imgtype=0&src=http%3A%2F%2Fp8.qhimg.com%2Ft01b3499a7704e3ea91.jpg"
@@ -540,6 +563,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、写在前面的废话"><span class="nav-number">1.</span> <span class="nav-text">一、写在前面的废话</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、ARGB"><span class="nav-number">2.</span> <span class="nav-text">二、ARGB</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、RGBA"><span class="nav-number">3.</span> <span class="nav-text">三、RGBA</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
