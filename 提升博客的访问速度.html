@@ -97,10 +97,16 @@
 <meta property="og:url" content="http://zhanghao.studio/提升博客的访问速度.html">
 <meta property="og:site_name" content="My World">
 <meta property="og:description" content="日常废话GitHub 是程序猿必备神器，通过它不仅能找到各种开源代码，还能快速搭建个人博客，具体教程可以看这 传送门。幸运的是，我们天朝子民访问 GitHub 还不受GFW限制，但毕竟它的老家在国外，访问速度自然有些拙计。如何提升 GitHub 博客的访问速度呢，一番搜索，学到几发新姿势。">
-<meta property="og:updated_time" content="2017-04-16T16:05:58.000Z">
+<meta property="og:image" content="http://oonvxzp5g.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-19%20%E4%B8%8B%E5%8D%8810.35.34.png">
+<meta property="og:image" content="http://oonvxzp5g.bkt.clouddn.com/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%903">
+<meta property="og:image" content="http://oonvxzp5g.bkt.clouddn.com/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%902">
+<meta property="og:image" content="http://oonvxzp5g.bkt.clouddn.com/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%904">
+<meta property="og:image" content="http://oonvxzp5g.bkt.clouddn.com/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%905">
+<meta property="og:updated_time" content="2017-04-19T15:44:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="提升博客的访问速度">
 <meta name="twitter:description" content="日常废话GitHub 是程序猿必备神器，通过它不仅能找到各种开源代码，还能快速搭建个人博客，具体教程可以看这 传送门。幸运的是，我们天朝子民访问 GitHub 还不受GFW限制，但毕竟它的老家在国外，访问速度自然有些拙计。如何提升 GitHub 博客的访问速度呢，一番搜索，学到几发新姿势。">
+<meta name="twitter:image" content="http://oonvxzp5g.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-19%20%E4%B8%8B%E5%8D%8810.35.34.png">
 
 
 
@@ -338,8 +344,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-04-17T00:05:58+08:00">
-                2017-04-17
+              <time title="更新于" itemprop="dateModified" datetime="2017-04-19T23:44:37+08:00">
+                2017-04-19
               </time>
             
           </span>
@@ -398,7 +404,28 @@
 <li><p>迁移到国内平台</p>
 <p>将博客部署到国产代码托管平台，我用的是 <a href="coding.net">Coding</a>。实现步骤跟 GitHub 类似，可以参考 <a href="https://coding.net/help/doc/pages/index.html" target="_blank" rel="external">官方教程</a>。 我在添加新的ssh公钥到 Coding 时，遇到了问题，请看 <a href="https://fsky.coding.me/2017/04/12/mac-os%E7%94%9F%E6%88%90%E5%A4%9A%E4%B8%AAssh%E7%A7%98%E9%92%A5%E5%AF%B9/" target="_blank" rel="external">mac下管理多个ssh秘钥对</a>。将代码部署到 Coding 上后，我们得到了一个新的域名，<code>xxx.coding.me</code>，修改一下博客根目录下的配置文件 _config.yml，在 deploy 项下添加 Coding对应的 repo，这样每次执行 <code>hexo d</code> 命令之后，博客内容就会分别部署到 GitHub 和 Coding 了。</p>
 </li>
-<li><p>​绑定一个域名，实现双线访问。未完待续……</p>
+<li><p>绑定一个域名，实现双线访问</p>
+<p>如上文所说，迁移到国内平台后，我们又得到一个域名。但是对于同一个博客来说，没有必要，也不利于传播。所以我在万网上买了个域名，即 zhanghao.studio，通过设置域名解析，实现一个域名，双线访问。</p>
+<p>首先设置域名解析，下图是万网的域名管理界面：</p>
+<p><img src="http://oonvxzp5g.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-19%20%E4%B8%8B%E5%8D%8810.35.34.png" alt=""></p>
+<p>点击解析后进到编辑界面，万网的记录线路类型有很多，关于每种类型的介绍如下图：</p>
+<p><img src="http://oonvxzp5g.bkt.clouddn.com/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%903" alt=""></p>
+<p>我用到的只有 CNAME 和 A 类型两种，前者的记录值是某一域名，后者记录值是 ip 地址。主机记录填www，会将 zhanghao.studio解析成www.zhanghao.studio；不填则显示为@，直接解析成zhanghao.studio。解析线路有很多，国内访问设置为默认，国外访问设置为海外。记录值是 GitHub 和 Coding 提供的域名，如下图。</p>
+<p><img src="http://oonvxzp5g.bkt.clouddn.com/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%902" alt=""></p>
+<p>到这一步，我们完成了一半的设置，剩下一半的是去 GitHub 和 Coding 绑定你买的域名。</p>
+<p><strong>Coding</strong>：</p>
+<p><img src="http://oonvxzp5g.bkt.clouddn.com/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%904" alt=""></p>
+<p>进到你托管博客代码的仓库，再进入 Pages 服务，即可看到如上所示界面。Coding 可以绑定5个自定义域名，而 GitHub只能绑定1个。</p>
+<p><strong>GitHub</strong>：</p>
+<p><img src="http://oonvxzp5g.bkt.clouddn.com/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%905" alt=""></p>
+<p>绑定 GitHub 时需要注意，如果你想像我一样绑定顶级域名 xxx.com，而不加前缀 www，那么必须用 A 记录类型的，详情看 <a href="https://help.github.com/articles/setting-up-an-apex-domain/" target="_blank" rel="external">GitHub 官方教程</a>。</p>
+<p>至此，我们便实现了博客的双线访问，国内访问走 Coding Pages，国外走GitHub Pages。</p>
+</li>
+<li><p>利用 CDN </p>
+<blockquote>
+<p><strong>内容分发网络</strong>（<strong>Content delivery network</strong>或<strong>Content distribution network</strong>，<a href="https://zh.wikipedia.org/wiki/%E7%B8%AE%E5%AF%AB" target="_blank" rel="external">缩写</a>：<strong>CDN</strong>）是指一种通过<a href="https://zh.wikipedia.org/wiki/%E4%BA%92%E8%81%AF%E7%B6%B2" target="_blank" rel="external">互联网</a>互相连接的电脑网络系统，利用最靠近每位用户的服务器，更快、更可靠地将音乐、图片、视频、应用程序及其他文件发送给用户，来提供高性能、可扩展性及低成本的网络内容传递给用户。</p>
+</blockquote>
+<p>对于 CDN ，我仅仅只是了解了一下，就不多讲了。优化思路来自 Next 主题的官方文档 <a href="http://theme-next.iissnan.com/advanced-settings.html" target="_blank" rel="external">进阶设定</a>。</p>
 </li>
 </ol>
 
