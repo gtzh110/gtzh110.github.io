@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://zhanghao.studio/%E6%8D%A2mac%E5%95%A6.html</loc>
+    <lastmod>2017-05-31T14:33:35.000Z</lastmod>
+    <data>
+        <display>
+        <title>换mac啦</title>
+        <pubTime>2017-03-21T14:23:28.000Z</pubTime>
+        
+        <tag>Mac</tag>
+         
+         
+           
+             
+              <breadCrumb title="杂七杂八" url="http://zhanghao.studio/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://zhanghao.studio/%E6%8F%90%E5%8D%87%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6.html</loc>
     <lastmod>2017-04-19T15:44:37.000Z</lastmod>
     <data>
@@ -77,26 +97,6 @@
            
              
               <breadCrumb title="hexo" url="http://zhanghao.studio/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zhanghao.studio/%E6%8D%A2mac%E5%95%A6.html</loc>
-    <lastmod>2017-04-12T17:36:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>换mac啦</title>
-        <pubTime>2017-03-21T14:23:28.000Z</pubTime>
-        
-        <tag>Mac</tag>
-         
-         
-           
-             
-              <breadCrumb title="杂七杂八" url="http://zhanghao.studio/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"/>
           
         </display>
     </data>
