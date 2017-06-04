@@ -627,7 +627,7 @@
               
                 
                 <a class="post-title-link" href="/提升博客的访问速度.html" itemprop="url">
-                  提升博客的访问速度
+                  优化Github Pages访问速度,去除Coding Pages的广告页
                 </a>
               
             
@@ -659,8 +659,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-04-19T23:44:37+08:00">
-                2017-04-19
+              <time title="更新于" itemprop="dateModified" datetime="2017-06-05T01:08:04+08:00">
+                2017-06-05
               </time>
             
           </span>
@@ -714,7 +714,17 @@
 
       
         
-          <h4 id="日常废话"><a href="#日常废话" class="headerlink" title="日常废话"></a>日常废话</h4><p>GitHub 是程序猿必备神器，通过它不仅能找到各种开源代码，还能快速搭建个人博客，具体教程可以看这 <a href="https://zhanghao.studio/%E7%AC%AC%E4%B8%80%E7%AF%87%E2%80%94%E2%80%94%E5%88%A9%E7%94%A8hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2.html">传送门</a>。幸运的是，我们天朝子民访问 GitHub 还不受GFW限制，但毕竟它的老家在国外，访问速度自然有些拙计。如何提升 GitHub 博客的访问速度呢，一番搜索，学到几发新姿势。</p>
+          <h4 id="Updated-at-2017-06-05："><a href="#Updated-at-2017-06-05：" class="headerlink" title="Updated at 2017-06-05："></a>Updated at 2017-06-05：</h4><p>前几天访问博客才发现，Coding 给每个绑定了自定义域名的站都加了一个广告页，等5s后才跳转到主页，想去掉也可以，199元飞升黄金段位即可，唉，白银选手都是辣鸡啊。这真是太恶心了，咱们这小站本来就人迹罕至，再加一5s施法前摇，GGWP。政策一出，群情激愤，于是官方针对我等穷sir，推出 “ Hosted by Coding Pages “免广告服务，就是在你的主页某个位置加上这个超链接文本或图片，审核通过既可去除。</p>
+<p>文字版需要添加的代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Hosted by <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://pages.coding.me"</span> <span class="attr">style</span>=<span class="string">"font-weight: bold"</span>&gt;</span>Coding Pages<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>我用的是 NEXT 主题，去修改它的源码，</p>
+<blockquote>
+<p>/Users/……/……/themes/next/layout/_partials/footer.swig</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"copyright"</span> &gt;</span></div><div class="line">  &#123;% set current = date(Date.now(), "YYYY") %&#125;</div><div class="line">  &amp;copy; &#123;% if theme.since and theme.since != current %&#125; &#123;&#123; theme.since &#125;&#125; - &#123;% endif %&#125;</div><div class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">itemprop</span>=<span class="string">"copyrightYear"</span>&gt;</span>&#123;&#123; current &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"with-love"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-&#123;&#123; theme.authoricon &#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"author"</span> <span class="attr">itemprop</span>=<span class="string">"copyrightHolder"</span>&gt;</span>&#123;&#123; config.author &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line">&#123;% if theme.copyright %&#125;</div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"powered-by"</span>&gt;</span></div><div class="line">  &#123;&#123; __('footer.powered', '<span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"theme-link"</span> <span class="attr">href</span>=<span class="string">"https://hexo.io"</span>&gt;</span>Hexo<span class="tag">&lt;/<span class="name">a</span>&gt;</span>') &#125;&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"theme-info"</span>&gt;</span></div><div class="line">  &#123;&#123; __('footer.codingPages') &#125;&#125; </div><div class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://pages.coding.me"</span> <span class="attr">style</span>=<span class="string">"font-weight: bold"</span>&gt;</span>Coding Pages<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">&#123;% endif %&#125;</div></pre></td></tr></table></figure>
+<p>修改了最后一段 div 代码，其中footer.codingPages 是我定义的一个常量 “Hosted by” ，这样就改为我的博客底部的样式了。 </p>
+<hr>
+<h4 id="日常废话"><a href="#日常废话" class="headerlink" title="日常废话"></a>日常废话</h4><p>GitHub 是程序猿必备神器，通过它不仅能找到各种开源代码，还能快速搭建个人博客，具体教程可以看这 <a href="https://zhanghao.studio/%E7%AC%AC%E4%B8%80%E7%AF%87%E2%80%94%E2%80%94%E5%88%A9%E7%94%A8hexo%E5%92%8Cgithub%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2.html">传送门</a>。幸运的是，我们天朝子民访问 GitHub 还不受GFW限制，但毕竟它的老家在国外，访问速度自然有些拙计。如何提升 GitHub 博客的访问速度呢，一番搜索，学到几发新姿势。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/提升博客的访问速度.html#more" rel="contents">
@@ -786,7 +796,7 @@
               
                 
                 <a class="post-title-link" href="/换mac啦.html" itemprop="url">
-                  换mac啦
+                  Mac常用快捷键和Android+Rn开发环境搭建
                 </a>
               
             
@@ -818,8 +828,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-05-31T22:33:35+08:00">
-                2017-05-31
+              <time title="更新于" itemprop="dateModified" datetime="2017-06-05T00:42:27+08:00">
+                2017-06-05
               </time>
             
           </span>
@@ -873,7 +883,7 @@
 
       
         
-          <h4 id="一、写在前面的废话"><a href="#一、写在前面的废话" class="headerlink" title="一、写在前面的废话"></a>一、写在前面的废话</h4><p>  经历了一周的纠结，也错失几个好价，我终于狠下心，咬紧牙，一把掏出钱包，不对，是掏出手机付款了。机器到手后，所有的心疼瞬间丢到召唤师峡谷，太TM爽了！入眼的是无任何颗粒感的视网膜屏，双手放在键盘上，手掌能感受到带有丝丝凉意的金属质感，手指码字根本停不下来。我想，我终于理解那些推荐MBP的人了。</p>
+          <h4 id="一、写在前面的废话"><a href="#一、写在前面的废话" class="headerlink" title="一、写在前面的废话"></a>一、写在前面的废话</h4><p>  经历一周的纠结，我最终入手了MBP 840。无任何颗粒感的视网膜屏，散发着凉意的金属外壳，象征逼格的信仰灯，真是一件精致的艺术品。敲惯了红轴和茶轴，再体验薄膜键盘也别有一番滋味。我想，我终于理解那些推荐MBP的人了。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/换mac啦.html#more" rel="contents">
