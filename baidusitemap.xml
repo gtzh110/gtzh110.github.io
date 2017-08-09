@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>http://zhanghao.studio/%E5%AF%B9build-gradle%E4%B8%AD%E4%B8%89%E4%B8%AAxxxVersion%E7%9A%84%E7%90%86%E8%A7%A3.html</loc>
+    <lastmod>2017-08-09T16:37:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>对build.gradle中三个xxxVersion的理解</title>
+        <pubTime>2017-08-09T14:57:19.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+         
+           
+             
+              <breadCrumb title="android" url="http://zhanghao.studio/categories/android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhanghao.studio/java%E6%B3%A8%E8%A7%A3.html</loc>
+    <lastmod>2017-08-09T14:57:57.000Z</lastmod>
+    <data>
+        <display>
+        <title>java注解</title>
+        <pubTime>2017-07-16T09:29:36.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://zhanghao.studio/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://zhanghao.studio/%E6%8F%90%E5%8D%87%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6.html</loc>
     <lastmod>2017-07-19T12:32:31.000Z</lastmod>
     <data>
@@ -17,26 +57,6 @@
            
              
               <breadCrumb title="hexo" url="http://zhanghao.studio/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zhanghao.studio/java%E6%B3%A8%E8%A7%A3.html</loc>
-    <lastmod>2017-07-16T16:26:59.000Z</lastmod>
-    <data>
-        <display>
-        <title>java注解</title>
-        <pubTime>2017-07-16T09:29:36.000Z</pubTime>
-        
-        <tag>java&amp;android</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="http://zhanghao.studio/categories/java/"/>
           
         </display>
     </data>

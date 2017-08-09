@@ -75,7 +75,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Mac," />
+  <meta name="keywords" content="android," />
 
 
 
@@ -91,18 +91,16 @@
 
 
 
-<meta name="description" content="一、写在前面的废话  经历一周的纠结，我最终入手了MBP 840。无任何颗粒感的视网膜屏，散发着凉意的金属外壳，象征逼格的信仰灯，真是一件精致的艺术品。敲惯了红轴和茶轴，再体验薄膜键盘也别有一番滋味。我想，我终于理解那些推荐MBP的人了。">
+<meta name="description" content="前言Gradle 作为 android studio 时代官方指定的自动化构建工具，是我们开发任何项目都必不可少的神器，关于它的介绍，请看 stormzhang 的这篇blog。Android 项目的 app module 下的 build.gradle文件中，定义了三个 version ：compiledSdkVersion、minSdkVersion、targetSdkVersion，它们的含">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac常用快捷键和Android+Rn开发环境搭建">
-<meta property="og:url" content="http://zhanghao.studio/换mac啦.html">
+<meta property="og:title" content="对build.gradle中三个xxxVersion的理解">
+<meta property="og:url" content="http://zhanghao.studio/对build-gradle中三个xxxVersion的理解.html">
 <meta property="og:site_name" content="My World">
-<meta property="og:description" content="一、写在前面的废话  经历一周的纠结，我最终入手了MBP 840。无任何颗粒感的视网膜屏，散发着凉意的金属外壳，象征逼格的信仰灯，真是一件精致的艺术品。敲惯了红轴和茶轴，再体验薄膜键盘也别有一番滋味。我想，我终于理解那些推荐MBP的人了。">
-<meta property="og:image" content="http://oonvxzp5g.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-12%20%E4%B8%8A%E5%8D%8811.37.12.jpg">
-<meta property="og:updated_time" content="2017-06-04T16:42:27.000Z">
+<meta property="og:description" content="前言Gradle 作为 android studio 时代官方指定的自动化构建工具，是我们开发任何项目都必不可少的神器，关于它的介绍，请看 stormzhang 的这篇blog。Android 项目的 app module 下的 build.gradle文件中，定义了三个 version ：compiledSdkVersion、minSdkVersion、targetSdkVersion，它们的含">
+<meta property="og:updated_time" content="2017-08-09T16:37:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac常用快捷键和Android+Rn开发环境搭建">
-<meta name="twitter:description" content="一、写在前面的废话  经历一周的纠结，我最终入手了MBP 840。无任何颗粒感的视网膜屏，散发着凉意的金属外壳，象征逼格的信仰灯，真是一件精致的艺术品。敲惯了红轴和茶轴，再体验薄膜键盘也别有一番滋味。我想，我终于理解那些推荐MBP的人了。">
-<meta name="twitter:image" content="http://oonvxzp5g.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-12%20%E4%B8%8A%E5%8D%8811.37.12.jpg">
+<meta name="twitter:title" content="对build.gradle中三个xxxVersion的理解">
+<meta name="twitter:description" content="前言Gradle 作为 android studio 时代官方指定的自动化构建工具，是我们开发任何项目都必不可少的神器，关于它的介绍，请看 stormzhang 的这篇blog。Android 项目的 app module 下的 build.gradle文件中，定义了三个 version ：compiledSdkVersion、minSdkVersion、targetSdkVersion，它们的含">
 
 
 
@@ -130,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://zhanghao.studio/换mac啦.html"/>
+  <link rel="canonical" href="http://zhanghao.studio/对build-gradle中三个xxxVersion的理解.html"/>
 
 
 
 
 
-  <title> Mac常用快捷键和Android+Rn开发环境搭建 | My World </title>
+  <title> 对build.gradle中三个xxxVersion的理解 | My World </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -288,7 +286,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://zhanghao.studio/换mac啦.html">
+    <link itemprop="mainEntityOfPage" href="http://zhanghao.studio/对build-gradle中三个xxxVersion的理解.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张昊">
@@ -309,7 +307,7 @@
             
             
               
-                Mac常用快捷键和Android+Rn开发环境搭建
+                对build.gradle中三个xxxVersion的理解
               
             
           </h1>
@@ -324,8 +322,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-21T22:23:28+08:00">
-                2017-03-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-09T22:57:19+08:00">
+                2017-08-09
               </time>
             
 
@@ -340,8 +338,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-06-05T00:42:27+08:00">
-                2017-06-05
+              <time title="更新于" itemprop="dateModified" datetime="2017-08-10T00:37:00+08:00">
+                2017-08-10
               </time>
             
           </span>
@@ -359,8 +357,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/杂七杂八/" itemprop="url" rel="index">
-                    <span itemprop="name">杂七杂八</span>
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
                   </a>
                 </span>
 
@@ -394,77 +392,27 @@
       
 
       
-        <h4 id="一、写在前面的废话"><a href="#一、写在前面的废话" class="headerlink" title="一、写在前面的废话"></a>一、写在前面的废话</h4><p>  经历一周的纠结，我最终入手了MBP 840。无任何颗粒感的视网膜屏，散发着凉意的金属外壳，象征逼格的信仰灯，真是一件精致的艺术品。敲惯了红轴和茶轴，再体验薄膜键盘也别有一番滋味。我想，我终于理解那些推荐MBP的人了。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Gradle 作为 android studio 时代官方指定的自动化构建工具，是我们开发任何项目都必不可少的神器，关于它的介绍，请看 stormzhang 的<a href="http://stormzhang.com/android/2016/07/02/gradle-for-android-beginners/" target="_blank" rel="external">这篇blog</a>。Android 项目的 app module 下的 build.gradle文件中，定义了三个 version ：compiledSdkVersion、minSdkVersion、targetSdkVersion，它们的含义和作用是什么，请看下文分解。</p>
 <a id="more"></a>
-<h4 id="二、一些常用快捷键"><a href="#二、一些常用快捷键" class="headerlink" title="二、一些常用快捷键"></a>二、一些常用快捷键</h4><p>暂时把常用的列举一下，以后再慢慢补充吧。</p>
-<p><code>command + shift + 3/4 截屏/截图</code></p>
-<p><code>command + m 最小化窗口</code></p>
-<p><code>command + h 隐藏窗口</code></p>
-<p><code>command + q 关闭当前程序</code></p>
-<p><code>command + r 刷新</code></p>
-<p><code>command + t/w 新建一个选项卡/关闭当前选项卡</code></p>
-<p><code>command + shift + . 显示隐藏文件夹和文件</code></p>
-<p><code>command + shift + g 前往指定文件夹</code></p>
-<p>上面是我这几天用的最多的，在知乎上看到一张图，基本上涵盖了最常用的吧：</p>
-<p><img src="http://oonvxzp5g.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-04-12%20%E4%B8%8A%E5%8D%8811.37.12.jpg" alt=""></p>
-<h4 id="三、开发环境的搭建"><a href="#三、开发环境的搭建" class="headerlink" title="三、开发环境的搭建"></a>三、开发环境的搭建</h4><p>  公司项目用的 Android 原生和 React Native混合开发的模式，所以需要搭建 Android 环境和 RN 环境。</p>
-<ul>
-<li><p>Google 了一下，发现苹果有个软件包管理工具 Homebrew 很好用，装上试试</p>
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><h4 id="compiledSdkVersion"><a href="#compiledSdkVersion" class="headerlink" title="compiledSdkVersion"></a>compiledSdkVersion</h4><p>这个是用来告诉 gradle 用哪个版本的 sdk 来编译你的项目。这意味着你可以使用API版本中包含的Android API功能(以及所有以前的版本)。如果你尝试使用API 16中的功能，但将<code>compileSdkVersion</code>设置为15，则会收到编译错误。如果你的手机版本是15，将<code>compileSdkVersion</code>设置为16，只要你的应用不尝试调用 API 16特有的API，仍然可以在API 15设备上运行。</p>
 <blockquote>
-<p>Homebrew是Mac OSX上的软件包管理工具，能在Mac中方便的安装软件或者卸载软件，相当于linux下的apt-get、yum神器；Homebre可以在Mac上安装一些OS X没有的UNIX工具，Homebrew将这些工具统统安装到了 /usr/local/Cellar 目录中，并在 /usr/local/bin 中创建符号链接。</p>
+<p>需要强调的是<strong>修改 compileSdkVersion 不会改变运行时的行为</strong>。当你修改了 compileSdkVersion 的时候，可能会出现新的编译警告、编译错误，但新的 compileSdkVersion 不会被包含到 APK 中：它纯粹只是在编译的时候使用。（你真的应该修复这些警告，他们的出现一定是有原因的）</p>
+<p>因此我们强烈推荐<strong>总是使用最新的 SDK 进行编译</strong>。在现有代码上使用新的编译检查可以获得很多好处，避免新弃用的 API ，并且为使用新的 API 做好准备。</p>
 </blockquote>
-<p>安装很简单，一行指令即可，虽然不懂啥意思…</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</div></pre></td></tr></table></figure>
-<p>HomeBrew常用指令</p>
-<p><code>brew search xxx 搜索软件</code></p>
-<p><code>brew install xxx 安装</code></p>
-<p><code>brew cask install xxx 安装软件</code> 与上面的区别我不懂，知乎上有两个回答供参考<a href="https://www.zhihu.com/question/22624898" target="_blank" rel="external">传送门</a></p>
-<p><code>brew uninstall xxx 卸载</code></p>
-<p><code>brew list 显示已经安装的软件</code></p>
-</li>
-<li><p>我手上这台机器是 os x 10.12.3的，没有自带 Java，所以我们需要手动安装。我们可以去 oracle 官网下载 jdk for mac，也可以用上面提到的 brew cask install java 来进行安装。我没有配置 java 的环境变量，似乎也能用 java -version，神奇。</p>
-</li>
-<li><p>android studio 直接下载 .dmg 文件即可，它自动设置了 java 的路径， sdk可以通过studio下载,或者找个国内镜像网站下好后放到 sdk 目录下。</p>
-<p>ps: 要想在终端下使用 ADB 命令，还得配置sdk的环境变量，参考<a href="http://www.cnblogs.com/zzsdream/p/6393480.html" target="_blank" rel="external">传送门</a></p>
-<ol>
-<li><p>进入终端，在用户目录下，输入命令。该命令的作用是如果不存在.bash_profile文件，则创建该文件。</p>
+<h4 id="minSdkVersion"><a href="#minSdkVersion" class="headerlink" title="minSdkVersion"></a>minSdkVersion</h4><p>这个很好理解，就是当前应用所支持运行的最低系统版本。假设设置为23，如果你的手机系统版本22，是安装不上这个应用的。</p>
 <blockquote>
-<p>touch .bash_profile </p>
+<p>在开发时 minSdkVersion 也起到一个重要角色：<a href="http://developer.android.com/tools/debugging/improving-w-lint.html?utm_campaign=adp_series_sdkversion_010616&amp;utm_source=medium&amp;utm_medium=blog" target="_blank" rel="external">lint</a> 默认会在项目中运行，它在你使用了高于 minSdkVersion  的 API 时会警告你，帮你避免调用不存在的 API 的运行时问题。如果只在较高版本的系统上才使用某些 API，通常使用<a href="http://developer.android.com/training/basics/supporting-devices/platforms.html?utm_campaign=adp_series_sdkversion_010616&amp;utm_source=medium&amp;utm_medium=blog#version-codes" target="_blank" rel="external">运行时检查系统版本</a>的方式解决。</p>
 </blockquote>
-</li>
-<li><p>再输入命令，该命令的作用是用文本编辑器TextEdit打开.bash_profile文件</p>
+<p>可以看个官方提供的检查系统版本的代码示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setUpActionBar</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="comment">// Make sure we're running on Honeycomb or higher to use ActionBar APIs</span></div><div class="line">    <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.HONEYCOMB) &#123;</div><div class="line">        ActionBar actionBar = getActionBar();</div><div class="line">        actionBar.setDisplayHomeAsUpEnabled(<span class="keyword">true</span>);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      <span class="comment">//nothing</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="targetSdkVersion"><a href="#targetSdkVersion" class="headerlink" title="targetSdkVersion"></a>targetSdkVersion</h4><p>这个是最不好理解的一个。官方解释说，这是 Android 提供向前兼容的主要依据。</p>
 <blockquote>
-<p>open -e .bash_profile </p>
+<p>这是什么意思呢？随着 Android 系统的升级，某个系统的 API 或者模块的行为可能会发生改变，但是为了保证老 APK 的行为还是和以前兼容。只要 APK 的 targetSdkVersion 不变，即使这个 APK 安装在新 Android 系统上，其行为还是保持老的系统上的行为，这样就保证了系统对老应用的前向兼容性。</p>
+<p>这里还是用原文的例子，在 Android 4.4 (API 19）以后，AlarmManager 的 <a href="http://developer.android.com/reference/android/app/AlarmManager.html?utm_campaign=adp_series_sdkversion_010616&amp;utm_source=medium&amp;utm_medium=blog#set%28int,%20long,%20android.app.PendingIntent%29" target="_blank" rel="external"><code>set()</code></a> 和 <a href="http://developer.android.com/reference/android/app/AlarmManager.html?utm_campaign=adp_series_sdkversion_010616&amp;utm_source=medium&amp;utm_medium=blog#setRepeating%28int,%20long,%20long,%20android.app.PendingIntent%29" target="_blank" rel="external"><code>setRepeat()</code></a> 这两个 API 的行为发生了变化。在 Android 4.4 以前，这两个 API 设置的都是精确的时间，系统能保证在 API 设置的时间点上唤醒 Alarm。因为省电原因 Android 4.4 系统实现了 AlarmManager 的对齐唤醒，这两个 API 设置唤醒的时间，系统都对待成不精确的时间，系统只能保证在你设置的时间点之后某个时间唤醒。</p>
+<p>这时，虽然 API 没有任何变化，但是实际上 API 的行为却发生了变化，如果老的 APK 中使用了此 API，并且在应用中的行为非常依赖 AlarmManager 在精确的时间唤醒，例如闹钟应用。如果 Android 系统不能保证兼容，老的 APK 安装在新的系统上，就会出现问题。</p>
+<p>Android 系统是怎么保证这种兼容性的呢？这时候 targetSdkVersion 就起作用了。APK 在调用系统 AlarmManager 的 <code>set()</code> 或者 <code>setRepeat()</code> 的时候，系统首先会查一下调用的 APK 的 targetSdkVersion 信息，如果小于 19，就还是按照老的行为，即精确设置唤醒时间，否者执行新的行为。</p>
 </blockquote>
-</li>
-<li><p>在编辑器中加入以下路径</p>
-<blockquote>
-<p>export PATH=${PATH}:/Users/xxx(你的sdk路径)/sdk/platform-tools  </p>
-<p>export PATH=${PATH}:/Users/xxx(你的sdk路径)/sdk/tools  </p>
-</blockquote>
-</li>
-<li><p>保存退出，重启终端，检验是否设置成功</p>
-<blockquote>
-<p>adb version</p>
-</blockquote>
-</li>
-</ol>
-</li>
-<li><p>RN 环境搭建，可参考<a href="http://reactnative.cn" target="_blank" rel="external">传送门</a>。我简单说下步骤：</p>
-<ul>
-<li><p>安装 node.js ,直接<code>brew install node</code>走你。</p>
-</li>
-<li><p>安装后，给 npm 设置镜像（GFW你懂得）</p>
-<p><code>npm config set registry https://registry.npm.taobao.org --global</code></p>
-<p><code>npm config set disturl https://npm.taobao.org/dist --global</code></p>
-</li>
-<li><p>安装 react native 命令行工具</p>
-<p><code>npm install -g react-native-cli</code></p>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="四、终端的-bogon"><a href="#四、终端的-bogon" class="headerlink" title="四、终端的 bogon"></a>四、终端的 bogon</h4><p>  今晚回家打开终端后，发现终端名称变成了 bogon, what?这他么是啥，搜了一下，找到个解决方案<a href="http://yangjunwei.com/a/1428.html" target="_blank" rel="external">传送门</a>。我用的第一种方法，<code>scutil --set HostName new_hostname</code> ，亲测可行。</p>
+<h3 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h3><p><a href="https://www.race604.com/android-targetsdkversion/" target="_blank" rel="external">Android targetSdkVersion 原理</a></p>
 
       
     </div>
@@ -494,7 +442,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Mac/" rel="tag"># Mac</a>
+            <a href="/tags/android/" rel="tag"># android</a>
           
         </div>
       
@@ -507,8 +455,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ARGB与RGBA.html" rel="next" title="ARGB与RGBA">
-                <i class="fa fa-chevron-left"></i> ARGB与RGBA
+              <a href="/java注解.html" rel="next" title="java注解">
+                <i class="fa fa-chevron-left"></i> java注解
               </a>
             
           </div>
@@ -516,10 +464,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/提升博客的访问速度.html" rel="prev" title="优化Github Pages访问速度,去除Coding Pages的广告页">
-                优化Github Pages访问速度,去除Coding Pages的广告页 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -659,7 +603,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、写在前面的废话"><span class="nav-number">1.</span> <span class="nav-text">一、写在前面的废话</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、一些常用快捷键"><span class="nav-number">2.</span> <span class="nav-text">二、一些常用快捷键</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、开发环境的搭建"><span class="nav-number">3.</span> <span class="nav-text">三、开发环境的搭建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、终端的-bogon"><span class="nav-number">4.</span> <span class="nav-text">四、终端的 bogon</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#compiledSdkVersion"><span class="nav-number">2.1.</span> <span class="nav-text">compiledSdkVersion</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#minSdkVersion"><span class="nav-number">2.2.</span> <span class="nav-text">minSdkVersion</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#targetSdkVersion"><span class="nav-number">2.3.</span> <span class="nav-text">targetSdkVersion</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#感谢"><span class="nav-number">3.</span> <span class="nav-text">感谢</span></a></li></ol></div>
             
 
           </div>
