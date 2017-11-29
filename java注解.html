@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://zhanghao.studio/java注解.html">
 <meta property="og:site_name" content="My World">
 <meta property="og:description" content="前言初学 Java 时，注解这部分知识是匆匆略过的，后来开发 Android 过程中遇到 butterknife 等跟注解有关的代码，也只是按照 API 调用，没有深入研究。前几天跟 web 端同事联调时，发现他们代码中用到注解的地方挺多，方法体上方加一行简短的代码，就能实现复杂的业务逻辑。所以今天认真研究一下注解的用法和特性，弥补知识漏洞。">
-<meta property="og:updated_time" content="2017-08-09T14:57:57.000Z">
+<meta property="og:updated_time" content="2017-11-29T15:42:20.499Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java注解">
 <meta name="twitter:description" content="前言初学 Java 时，注解这部分知识是匆匆略过的，后来开发 Android 过程中遇到 butterknife 等跟注解有关的代码，也只是按照 API 调用，没有深入研究。前几天跟 web 端同事联调时，发现他们代码中用到注解的地方挺多，方法体上方加一行简短的代码，就能实现复杂的业务逻辑。所以今天认真研究一下注解的用法和特性，弥补知识漏洞。">
@@ -338,8 +338,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-08-09T22:57:57+08:00">
-                2017-08-09
+              <time title="更新于" itemprop="dateModified" datetime="2017-11-29T23:42:20+08:00">
+                2017-11-29
               </time>
             
           </span>
@@ -398,50 +398,93 @@
 <blockquote>
 <p><strong>元资料</strong>（<strong>Metadata</strong>），又称<strong>元数据</strong>、<strong>诠释资料</strong>、<strong>中介资料</strong>、<strong>中继资料</strong>、<strong>后设资料</strong>等，为描述其他<a href="https://zh.wikipedia.org/wiki/%E8%B3%87%E6%96%99" target="_blank" rel="external">资料</a>资讯的资料<a href="https://zh.wikipedia.org/wiki/%E5%85%83%E6%95%B0%E6%8D%AE#cite_note-1" target="_blank" rel="external">[1]</a>。有三种不同类型的元资料，分别是<strong>记叙性元资料</strong>、<strong>结构性元资料</strong>和<strong>管理性元资料</strong><a href="https://zh.wikipedia.org/wiki/%E5%85%83%E6%95%B0%E6%8D%AE#cite_note-Metadata_Basics_Outline-2" target="_blank" rel="external">[2]</a>。</p>
 </blockquote>
-<p>好吧，看了跟没看一样。我个人觉得 annotation 从形式上看类似于注释，写在某个类或方法上面，有解释说明某段代码的作用，但它比注释牛比，可以实现一些功能逻辑，影响代码的运行。</p>
+<p>好吧，看了跟没看一样。我个人觉得 annotation 从形式上看类似于注释，可以作用于某个类、方法、变量、参数等，有解释说明某段代码的作用，但它的功能比注释强大得多。</p>
+<p>####注解的作用</p>
+<ul>
+<li>标记，用于告诉编译器某些信息</li>
+<li>编译时动态处理，如动态生成代码</li>
+<li>运行时动态处理，如通过反射获取注解</li>
+</ul>
 <h4 id="注解的分类"><a href="#注解的分类" class="headerlink" title="注解的分类"></a>注解的分类</h4><ul>
-<li><p>内置注解</p>
-<p>Java 提供了三个内置注解，如下所示，都是最常见的。</p>
+<li><p>内置注解（标准注解）</p>
+<p>Java 提供了三个内置注解，如下所示，都是最常见的</p>
 <ul>
 <li>@Deprecated ：表示java不赞成使用这些被描述的对象</li>
-<li>@Override ：用来修饰对父类进行重写的方法。如果父类中的方法名称或参数发生改变时，如果子类没有做相应的调整    编译器便会报错</li>
+<li>@Override ：用来修饰对父类进行重写的方法。如果父类中的方法名称或参数发生改变时，如果子类没有做相应的调整编译器便会报错</li>
 <li>@SuppressWarnings ：使编译器忽略掉编译器警告，比如使用了 Deprecated 的类或方法</li>
 </ul>
 </li>
 </ul>
 <ul>
 <li><p>元注解</p>
-<p>元注解就是描述注解的注解。我们可以通过元注解来控制自定义注解的行为。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">作者：蛋西</div><div class="line">链接：http://www.jianshu.com/p/01fa86f24c4a</div><div class="line">來源：简书</div><div class="line"></div><div class="line">// 标志将此注解包含至javadoc中</div><div class="line">@Documented  </div><div class="line"></div><div class="line">// 定义注解保存级别</div><div class="line">// 1.SOURCE 源代码注解，被编译器丢弃</div><div class="line">// 2.CLASS 类注解，被编译器记录在class文件中，运行时被VM丢弃，在编译时使用，属于默认配置</div><div class="line">// 3.RUNTIME 被编译器记录在class文件中，运行时可用，被VM保留，所以可以在运行时搭配反射使用</div><div class="line">@Retention(RetentionPolicy.RUNTIME)</div><div class="line"></div><div class="line">// 定义注解适用的目标</div><div class="line">// 1.TYPE Class类，接口(包括注解类型或者enum类型)</div><div class="line">// 2.FIELD 属性(包括enum实例)</div><div class="line">// 3.METHOD 方法</div><div class="line">// 4.PARAMETER 方法参数</div><div class="line">// 5.CONSTRUCTOR 类构造器</div><div class="line">// 6.LOCAL_VARIABLE 本地变量</div><div class="line">// 7.ANNOTATION_TYPE 注解类型</div><div class="line">// 8.PACKAGE 包</div><div class="line">@Target(ElementType.METHOD)</div><div class="line"></div><div class="line">//想让一个类和它的子类都包含某个注解，就可以使用@Inherited来修饰这个注解。</div><div class="line">@Inherited</div></pre></td></tr></table></figure>
+<p>元注解就是<strong>描述注解的注解</strong>。我们可以通过元注解来控制自定义注解的行为。</p>
+<blockquote>
+<ol>
+<li><p>@Documented </p>
+<p>标志将此注解包含至 javadoc 中 </p>
+</li>
+<li><p>@Retention</p>
+<p>定义注解保存级别</p>
+<ul>
+<li>SOURCE：源码时注解，被编译器丢弃</li>
+<li>CLASS ：编译时，被编译器记录在class文件中，运行时被VM丢弃，在编译时使用，<strong>属于默认配置</strong></li>
+<li>RUNTIME：运行时， 被编译器记录在class文件中，运行时可用，被VM保留，所以可以在运行时搭配反射使用</li>
+</ul>
+</li>
+<li><p>@Target</p>
+<p>定义注解适用的目标</p>
+<ul>
+<li>TYPE：Class类，接口(包括注解类型或者enum类型)</li>
+<li>FIELD：属性(包括enum实例)</li>
+<li>METHOD：方法</li>
+<li>PARAMETER：方法参数</li>
+<li>CONSTRUCTOR：类构造器</li>
+<li>LOCAL_VARIABLE：本地变量</li>
+<li>ANNOTATION_TYPE：注解</li>
+<li>PACKAGE：包</li>
+</ul>
+</li>
+<li><p>@Inherited</p>
+<p>想让一个类和它的子类都包含某个注解，就可以使用@Inherited来修饰这个注解</p>
+</li>
+</ol>
+</blockquote>
 </li>
 <li><p>自定义注解</p>
-<p>我看到的公司 web 端代码就是自定义注解，创建方法类似接口，可以通过<code>default</code>关键字为某个元素设置默认值。 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@interface</span> MyAnnotation &#123;</div><div class="line">    <span class="function">String   <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> "xxx"</span>;</div><div class="line">    <span class="function">String   <span class="title">name</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">int</span>      <span class="title">age</span><span class="params">()</span></span>;</div><div class="line">    String[] newNames();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>注解中的每个元素定义类似于接口中的方法定义</strong>。每个元素定义包含一个<strong>数据类型</strong>和<strong>名称</strong>，注解元素的数据类型可以是 java 基本数据类型、String、数组，但不能是复杂对象类型。</p>
-<p>下面这段代码演示了如何使用注解:</p>
+<p>我看到的公司 web 端代码就是自定义注解，通过 @interface 定义，注解名即为⾃自定义注解名。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Documented</span> </div><div class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</div><div class="line"><span class="meta">@Target</span>(ElementType.TYPE)</div><div class="line"><span class="meta">@Inherited</span></div><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnnotation &#123;</div><div class="line">    <span class="function">String   <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> "xxx"</span>;</div><div class="line">    <span class="function">String   <span class="title">name</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">int</span>      <span class="title">age</span><span class="params">()</span></span>;</div><div class="line">    String[] newNames();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>a. 所有方法没有方法体，没有参数没有修饰符，实际只允许 public &amp; abstract 修饰符，默认为 public ，不允许抛异常</p>
+<p>b. ⽅法返回值只能是基本类型，String， Class，annotation，enumeration 或者是它们的一维数组</p>
+<p>c. 若只有⼀个默认属性，可直接⽤用 value() 函数。一个属性都没有表⽰示该 Annotation 为 Mark Annotation</p>
+<p>d.可以加 default 表示默认值</p>
+</blockquote>
+<p>下面这段代码演示了如何使用该注解:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@MyAnnotation</span>(</div><div class="line">    value=<span class="string">"123"</span>（value有默认值了，这里可以不指定）,</div><div class="line">    name=<span class="string">"Jakob"</span>,</div><div class="line">    age=<span class="number">37</span>,</div><div class="line">    newNames=&#123;<span class="string">"Jenkov"</span>, <span class="string">"Peterson"</span>&#125;</div><div class="line">)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>我们需要为所有的注解元素设置值，一个都不能少，但有默认值的元素，我们可以不设值。</p>
+<p>我们需要为所有的注解元素设值，但有默认值的元素，我们可以不设值。</p>
 </li>
 </ul>
-<h4 id="通过反射获取注解中的信息"><a href="#通过反射获取注解中的信息" class="headerlink" title="通过反射获取注解中的信息"></a>通过反射获取注解中的信息</h4><p>​    对于运行时注解，我们可以通过反射机制获得注解信息。</p>
+<h4 id="通过反射获取注解中的信息"><a href="#通过反射获取注解中的信息" class="headerlink" title="通过反射获取注解中的信息"></a>通过反射获取注解中的信息</h4><p>​    对于运行时注解，我们可以通过反射机制获得注解信息，以上面的注解为例。</p>
 <ul>
 <li><p>获取类的注解信息</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</div><div class="line"><span class="meta">@Target</span>(ElementType.TYPE)</div><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnnotation &#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">name</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">value</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@MyAnnotation</span>(name = <span class="string">"hello name"</span>,value = <span class="string">"hello value"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestAnnotation</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="comment">//通过反射获得MyClass的注解信息</span></div><div class="line">        MyAnnotation myAnnotation=MyClass.class.getAnnotation(MyAnnotation.class);</div><div class="line">        System.out.println(myAnnotation.name());</div><div class="line">        System.out.println(myAnnotation.value());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestAnnotation</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="comment">//通过反射获得MyClass的注解信息</span></div><div class="line">        MyAnnotation myAnnotation = MyClass.class.getAnnotation(MyAnnotation.class);</div><div class="line">        System.out.println(myAnnotation.name());</div><div class="line">        System.out.println(myAnnotation.value());</div><div class="line">      </div><div class="line">      	······</div><div class="line">          </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 <li><p>获取方法的注解信息</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestAnnotation</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Method method = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            method = MyClassB.class.getMethod(<span class="string">"method"</span>);</div><div class="line">            Annotation annotation = method.getAnnotation(MyAnnotation.class);</div><div class="line">            <span class="keyword">if</span> (annotation !=<span class="keyword">null</span>) &#123;</div><div class="line">                MyAnnotation myAnnotation = (MyAnnotation) annotation;</div><div class="line">                System.out.println(<span class="string">"name: "</span> + myAnnotation.name());</div><div class="line">                System.out.println(<span class="string">"value: "</span> + myAnnotation.value());</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">catch</span> (NoSuchMethodException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
-<li><p>获取参数的注解信息</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">Method method = ... <span class="comment">//obtain method object</span></div><div class="line">Annotation[][] parameterAnnotations = method.getParameterAnnotations();</div><div class="line">Class[] parameterTypes = method.getParameterTypes();</div><div class="line"></div><div class="line"><span class="keyword">int</span> i=<span class="number">0</span>;</div><div class="line"><span class="keyword">for</span>(Annotation[] annotations : parameterAnnotations)&#123;</div><div class="line">  Class parameterType = parameterTypes[i++];</div><div class="line"></div><div class="line">  <span class="keyword">for</span>(Annotation annotation : annotations)&#123;</div><div class="line">    <span class="keyword">if</span>(annotation <span class="keyword">instanceof</span> MyAnnotation)&#123;</div><div class="line">        MyAnnotation myAnnotation = (MyAnnotation) annotation;</div><div class="line">        System.out.println(<span class="string">"param: "</span> + parameterType.getName());</div><div class="line">        System.out.println(<span class="string">"name : "</span> + myAnnotation.name());</div><div class="line">        System.out.println(<span class="string">"value: "</span> + myAnnotation.value());</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li><p>获取方法参数的注解信息</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">Method method = MyClassC.class.getMethod(<span class="string">"method"</span>)</div><div class="line">Annotation[][] parameterAnnotations = method.getParameterAnnotations();</div><div class="line">Class[] parameterTypes = method.getParameterTypes();</div><div class="line"></div><div class="line"><span class="keyword">int</span> i=<span class="number">0</span>;</div><div class="line"><span class="keyword">for</span>(Annotation[] annotations : parameterAnnotations)&#123;</div><div class="line">  Class parameterType = parameterTypes[i++];</div><div class="line">  <span class="keyword">for</span>(Annotation annotation : annotations)&#123;</div><div class="line">    <span class="keyword">if</span>(annotation <span class="keyword">instanceof</span> MyAnnotation)&#123;</div><div class="line">        MyAnnotation myAnnotation = (MyAnnotation) annotation;</div><div class="line">        System.out.println(<span class="string">"param: "</span> + parameterType.getName());</div><div class="line">        System.out.println(<span class="string">"name : "</span> + myAnnotation.name());</div><div class="line">        System.out.println(<span class="string">"value: "</span> + myAnnotation.value());</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>请注意<code>Annotation[][] annos = method.getParameterAnnotations()</code>，这得到的是一个二维数组，它是怎么组合的呢 ？举个例子</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">(@MyAnnotation1()</span><span class="keyword">int</span> id,@<span class="title">MyAnnotation2</span><span class="params">()</span>String name)</span>&#123;···&#125;</div></pre></td></tr></table></figure>
+<p>第一个参数的下标是0，第二个参数的下标是1，那么</p>
+<p><code>annos[0][0] = MyAnnotation1,annos[1][0] = MyAnnotation2</code>，参数前可以添加多个注解，所以得到的是个二维数组。</p>
 </li>
-<li><p>获取字段的注解信息</p>
+<li><p>获取变量的注解信息</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Field field = MyClassB.class.getField(<span class="string">"field"</span>);</div><div class="line">Annotation annotation = field.getAnnotation(MyAnnotation.class);</div><div class="line"></div><div class="line"><span class="keyword">if</span>(annotation <span class="keyword">instanceof</span> MyAnnotation)&#123;</div><div class="line">    MyAnnotation myAnnotation = (MyAnnotation) annotation;</div><div class="line">    System.out.println(<span class="string">"name: "</span> + myAnnotation.name());</div><div class="line">    System.out.println(<span class="string">"value: "</span> + myAnnotation.value());</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="Android-中的注解"><a href="#Android-中的注解" class="headerlink" title="Android 中的注解"></a>Android 中的注解</h3><p>关于 Android 中常用的注解，技术小黑屋有一篇文章介绍的很详细了，<a href="http://droidyue.com/blog/2016/08/14/android-annnotation/" target="_blank" rel="external">传送门</a>，我就不写了。</p>
-<p>以上内容借鉴了多篇文章，十分感谢：</p>
+<h3 id="Android-中的注解"><a href="#Android-中的注解" class="headerlink" title="Android 中的注解"></a>Android 中的注解</h3><p>关于 Android 中常用的注解，技术小黑屋有一篇文章介绍的很详细(<a href="http://droidyue.com/blog/2016/08/14/android-annnotation/" target="_blank" rel="external">传送门</a>)，我就不写了。现在特别火的Android开源框架，基本都有自定义注解的影子，如ButterKnife、EventBus、Retrofit等。我会另外写博客分析常用开源框架的源码，敬请期待。</p>
+<p>以上内容借鉴了很多大神的文章，十分感谢：</p>
 <p><a href="http://blog.csdn.net/suifeng3051/article/details/51801018" target="_blank" rel="external">Java注解详解</a></p>
 <p><a href="http://droidyue.com/blog/2016/04/24/look-into-java-annotation/" target="_blank" rel="external">详解Java中的注解</a></p>
 <p><a href="http://www.jianshu.com/p/01fa86f24c4a" target="_blank" rel="external">java annotation 详解</a></p>

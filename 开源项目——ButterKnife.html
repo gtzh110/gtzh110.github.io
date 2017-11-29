@@ -91,16 +91,19 @@
 
 
 
-<meta name="description" content="前言从八月初到现在，三个月没写过一篇笔记，似乎又回到过往几年的老路上，漫无目的，随波逐流。再这样下去，我曾经YY过得一切，恐怕只能苟活于 day dream 中。好吧，还是不想做条咸鱼，定个小目标，把当今业界牛B的开源项目源码挨个看一遍，并输出为文章。这周结束前，搞定ButterKnife!">
+<meta name="description" content="###前言
+从八月初到现在，三个月没写过一篇笔记，似乎又回到过往几年的老路上，漫无目的，随波逐流。我不想做条咸鱼，定个小目标，把当今业界牛B的开源项目源码挨个看一遍，并输出为文章。这周结束前，搞定 ButterKnife!">
 <meta property="og:type" content="article">
 <meta property="og:title" content="开源项目——ButterKnife">
 <meta property="og:url" content="http://zhanghao.studio/开源项目——ButterKnife.html">
 <meta property="og:site_name" content="My World">
-<meta property="og:description" content="前言从八月初到现在，三个月没写过一篇笔记，似乎又回到过往几年的老路上，漫无目的，随波逐流。再这样下去，我曾经YY过得一切，恐怕只能苟活于 day dream 中。好吧，还是不想做条咸鱼，定个小目标，把当今业界牛B的开源项目源码挨个看一遍，并输出为文章。这周结束前，搞定ButterKnife!">
-<meta property="og:updated_time" content="2017-11-08T16:25:07.000Z">
+<meta property="og:description" content="###前言
+从八月初到现在，三个月没写过一篇笔记，似乎又回到过往几年的老路上，漫无目的，随波逐流。我不想做条咸鱼，定个小目标，把当今业界牛B的开源项目源码挨个看一遍，并输出为文章。这周结束前，搞定 ButterKnife!">
+<meta property="og:updated_time" content="2017-11-29T16:08:14.335Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开源项目——ButterKnife">
-<meta name="twitter:description" content="前言从八月初到现在，三个月没写过一篇笔记，似乎又回到过往几年的老路上，漫无目的，随波逐流。再这样下去，我曾经YY过得一切，恐怕只能苟活于 day dream 中。好吧，还是不想做条咸鱼，定个小目标，把当今业界牛B的开源项目源码挨个看一遍，并输出为文章。这周结束前，搞定ButterKnife!">
+<meta name="twitter:description" content="###前言
+从八月初到现在，三个月没写过一篇笔记，似乎又回到过往几年的老路上，漫无目的，随波逐流。我不想做条咸鱼，定个小目标，把当今业界牛B的开源项目源码挨个看一遍，并输出为文章。这周结束前，搞定 ButterKnife!">
 
 
 
@@ -338,8 +341,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-11-09T00:25:07+08:00">
-                2017-11-09
+              <time title="更新于" itemprop="dateModified" datetime="2017-11-30T00:08:14+08:00">
+                2017-11-30
               </time>
             
           </span>
@@ -392,9 +395,16 @@
       
 
       
-        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>从八月初到现在，三个月没写过一篇笔记，似乎又回到过往几年的老路上，漫无目的，随波逐流。再这样下去，我曾经YY过得一切，恐怕只能苟活于 day dream 中。好吧，还是不想做条咸鱼，定个小目标，把当今业界牛B的开源项目源码挨个看一遍，并输出为文章。这周结束前，搞定ButterKnife!</p>
+        <p>###前言</p>
+<p>从八月初到现在，三个月没写过一篇笔记，似乎又回到过往几年的老路上，漫无目的，随波逐流。我不想做条咸鱼，定个小目标，把当今业界牛B的开源项目源码挨个看一遍，并输出为文章。这周结束前，搞定 ButterKnife!</p>
 <a id="more"></a>
-<h4 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h4>
+<p>###正文</p>
+<p>一句话概括ButterKnife的原理，主要利用注解和 APT（注解处理器），在获取 xxx_ViewBinding 的类对象时，也借助了 Java 反射。所以，先弄懂注解和 APT 吧，推荐一些写的不错的文章：</p>
+<p><a href="https://zhanghao.studio/java%E6%B3%A8%E8%A7%A3.html">Java注解</a></p>
+<p><a href="http://yuqirong.me/2016/12/18/ButterKnife%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" target="_blank" rel="external">ButterKnife源码分析</a></p>
+<p><a href="https://www.race604.com/annotation-processing/" target="_blank" rel="external">Java注解处理器</a></p>
+<p><a href="http://blog.csdn.net/industriously/article/details/53932425" target="_blank" rel="external">Android中使用AbstractProcessor在编译时生成代码</a></p>
+
       
     </div>
 
@@ -491,17 +501,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1487524748815&di=cd0f9aa211a9dd59ef60da71ac98b364&imgtype=0&src=http%3A%2F%2Fp8.qhimg.com%2Ft01b3499a7704e3ea91.jpg"
@@ -574,22 +575,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
