@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://zhanghao.studio/java注解.html">
 <meta property="og:site_name" content="My World">
 <meta property="og:description" content="前言初学 Java 时，注解这部分知识是匆匆略过的，后来开发 Android 过程中遇到 butterknife 等跟注解有关的代码，也只是按照 API 调用，没有深入研究。前几天跟 web 端同事联调时，发现他们代码中用到注解的地方挺多，方法体上方加一行简短的代码，就能实现复杂的业务逻辑。所以今天认真研究一下注解的用法和特性，弥补知识漏洞。">
-<meta property="og:updated_time" content="2017-11-29T15:42:20.499Z">
+<meta property="og:updated_time" content="2017-12-04T15:06:52.760Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java注解">
 <meta name="twitter:description" content="前言初学 Java 时，注解这部分知识是匆匆略过的，后来开发 Android 过程中遇到 butterknife 等跟注解有关的代码，也只是按照 API 调用，没有深入研究。前几天跟 web 端同事联调时，发现他们代码中用到注解的地方挺多，方法体上方加一行简短的代码，就能实现复杂的业务逻辑。所以今天认真研究一下注解的用法和特性，弥补知识漏洞。">
@@ -338,8 +338,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-11-29T23:42:20+08:00">
-                2017-11-29
+              <time title="更新于" itemprop="dateModified" datetime="2017-12-04T23:06:52+08:00">
+                2017-12-04
               </time>
             
           </span>
@@ -417,22 +417,16 @@
 </ul>
 <ul>
 <li><p>元注解</p>
-<p>元注解就是<strong>描述注解的注解</strong>。我们可以通过元注解来控制自定义注解的行为。</p>
+<p>元注解就是<strong>描述注解的注解</strong>，我们可以通过元注解来控制自定义注解的行为</p>
 <blockquote>
-<ol>
-<li><p>@Documented </p>
-<p>标志将此注解包含至 javadoc 中 </p>
-</li>
-<li><p>@Retention</p>
-<p>定义注解保存级别</p>
+<p>@Documented  标志将此注解包含至 javadoc 中 </p>
+<p>@Retention  定义注解保存级别</p>
 <ul>
 <li>SOURCE：源码时注解，被编译器丢弃</li>
 <li>CLASS ：编译时，被编译器记录在class文件中，运行时被VM丢弃，在编译时使用，<strong>属于默认配置</strong></li>
 <li>RUNTIME：运行时， 被编译器记录在class文件中，运行时可用，被VM保留，所以可以在运行时搭配反射使用</li>
 </ul>
-</li>
-<li><p>@Target</p>
-<p>定义注解适用的目标</p>
+<p>@Target  定义注解适用的目标</p>
 <ul>
 <li>TYPE：Class类，接口(包括注解类型或者enum类型)</li>
 <li>FIELD：属性(包括enum实例)</li>
@@ -443,15 +437,11 @@
 <li>ANNOTATION_TYPE：注解</li>
 <li>PACKAGE：包</li>
 </ul>
-</li>
-<li><p>@Inherited</p>
-<p>想让一个类和它的子类都包含某个注解，就可以使用@Inherited来修饰这个注解</p>
-</li>
-</ol>
+<p>@Inherited  让一个类和它的子类都包含某个注解</p>
 </blockquote>
 </li>
 <li><p>自定义注解</p>
-<p>我看到的公司 web 端代码就是自定义注解，通过 @interface 定义，注解名即为⾃自定义注解名。</p>
+<p>注解的定义类似于接口，不过注解是 @interface</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Documented</span> </div><div class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</div><div class="line"><span class="meta">@Target</span>(ElementType.TYPE)</div><div class="line"><span class="meta">@Inherited</span></div><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnnotation &#123;</div><div class="line">    <span class="function">String   <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> "xxx"</span>;</div><div class="line">    <span class="function">String   <span class="title">name</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">int</span>      <span class="title">age</span><span class="params">()</span></span>;</div><div class="line">    String[] newNames();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <blockquote>
 <p>a. 所有方法没有方法体，没有参数没有修饰符，实际只允许 public &amp; abstract 修饰符，默认为 public ，不允许抛异常</p>
